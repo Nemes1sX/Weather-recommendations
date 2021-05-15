@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('sku');
             $table->string('name');
-            $table->decimal('price',2, '',true);
+            $table->decimal('price',6, 2,true);
             $table->string('category');
             $table->timestamps();
         });
