@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::prefix('products')->group(function () {
+   Route::get('/recommended/{city}', [App\Http\Controllers\WeatherRecommendationsController::class, 'getWeatherRecommendations'])
+       ->name('weather.recommendations');
+});

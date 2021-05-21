@@ -40,7 +40,7 @@ class ProductSeed extends Seeder
             ],
         ];
         foreach ($products as $product) {
-            App\Models\Product::create($product);
+            \App\Models\Product::create($product);
         }
     }
 }
