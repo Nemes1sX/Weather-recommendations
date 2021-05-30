@@ -8,7 +8,7 @@ Provides clothes recommendations depending on the weather
 - Run __php artisan migrate --seed__ (it has some seeded data for your testing)
 # How to use?
 You can use the following example as a starting point for your application.
-GET /api/products/recommended/:city
+GET ```/api/products/recommended/:city```
 For the next 3 days depending on the forecast select random 2 items that would match the weather
 forecast.
 __Example output__
