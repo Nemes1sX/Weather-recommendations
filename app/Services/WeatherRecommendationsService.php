@@ -4,11 +4,13 @@
 namespace App\Services;
 
 use App\Models\Product;
+use App\Interfaces\IWeatherRecommendationService;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
 
-class WeatherRecommendationsService
+class WeatherRecommendationsService implements IWeatherRecommendationService
 {
+
     public function getRecommendation(string $city)
     {
         $startdate = Carbon::tomorrow();  //Gets tommorow

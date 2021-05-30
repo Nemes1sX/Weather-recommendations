@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Interfaces\IWeatherRecommendationService;
+use App\Services\WeatherRecommendationsService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(IWeatherRecommendationService::class, function (){
+            return new WeatherRecommendationsService();
+        });
     }
 
     /**
