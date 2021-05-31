@@ -13,9 +13,12 @@ class WeatherRecommendationsService implements IWeatherRecommendationService
 
     public function getRecommendation(string $city)
     {
+        $response = Http::get("https://api.meteo.lt/v1/places/{$city}/forecasts/long-term");
+        if ($response->status() == 404) {
+            return 'City not found';
+        }
         $startdate = Carbon::tomorrow();  //Gets tommorow
         $enddate = Carbon::tomorrow()->add(3, 'days'); //Gets 3 days ah of tommorrow
-        $response = Http::get("https://api.meteo.lt/v1/places/{$city}/forecasts/long-term");
         $forecasts = json_decode($response->body()); //Getting the body of the forecast
         $i = 0; //Initial index number of recommendations
         $recommendations = [];
